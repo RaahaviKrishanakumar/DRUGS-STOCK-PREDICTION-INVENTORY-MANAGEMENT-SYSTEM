@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Local Pharmacy Dashboard (LKR)</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased overflow-x-hidden">
+<div class="flex h-screen overflow-hidden">
+<aside class="w-64 flex flex-col border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 h-full">
+<div class="p-6 border-b border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined">health_metrics</span>
+</div>
+<div>
+<h1 class="text-base font-bold leading-none">MediPredict Pro</h1>
+<p class="text-[11px] text-slate-500 font-medium uppercase tracking-wider mt-1">Healthcare SaaS</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 overflow-y-auto p-4 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary font-semibold" href="#">
+<span class="material-symbols-outlined text-[22px]">dashboard</span>
+<span class="text-sm">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">inventory_2</span>
+<span class="text-sm">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">receipt_long</span>
+<span class="text-sm">Billing</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">bar_chart</span>
+<span class="text-sm">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[22px]">settings</span>
+<span class="text-sm">Settings</span>
+</a>
+</nav>
+<div class="p-4 border-t border-slate-100 dark:border-slate-800">
+<div class="flex items-center gap-3 p-2 rounded-xl bg-slate-50 dark:bg-slate-800">
+<div class="size-9 rounded-full bg-slate-300 overflow-hidden bg-cover bg-center" data-alt="User profile avatar photo" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBLpgClWT9wXfhGNR2Orfme8gN_WagoQnkFul7sqanwZnWBVoLuHjfkhxOmPCTjcy_dkBjPPeQaa75HWUbVdGRw6GEnTFSklryzfiOtul-1poLDkO2TH7QnBjlQ9KXppG9j3_4pSKCnZBmNRbwP-Zi0xhXh3X8RZzoaCrk15ELJcHFDSEU6QEKKYNDvEbsRCQVWVBJJI5MM23zfhxEC8h5iWBi_pJkbF6BbCZ_u-VYWXMU3Vse2hC4VxHZU53AhPqRcIixTQ2B3_0A')"></div>
+<div class="flex-1 min-w-0">
+<p class="text-xs font-bold truncate">Dr. Sarah Chen</p>
+<p class="text-[10px] text-slate-500 font-medium truncate italic">Admin Access</p>
+</div>
+<span class="material-symbols-outlined text-slate-400 text-lg">logout</span>
+</div>
+</div>
+</aside>
+<main class="flex-1 flex flex-col overflow-hidden">
+<header class="h-16 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-8 flex items-center justify-between z-10">
+<div class="flex items-center gap-4 flex-1">
+<h2 class="text-xl font-bold tracking-tight">Sales Overview (LKR)</h2>
+<div class="relative max-w-md w-full ml-4">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">search</span>
+<input class="w-full bg-slate-100 dark:bg-slate-800 border-none rounded-lg pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 placeholder:text-slate-400 transition-all" placeholder="Search transactions, patients, or medications..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="relative p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2.5 w-2 h-2 bg-red-500 border-2 border-white dark:border-slate-900 rounded-full"></span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors">
+<span class="material-symbols-outlined">help</span>
+</button>
+</div>
+</header>
+<div class="flex-1 overflow-y-auto p-8 space-y-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<span class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined">payments</span>
+</span>
+<span class="text-xs font-bold text-emerald-500 flex items-center">
+<span class="material-symbols-outlined text-sm">trending_up</span> 12.5%
+                        </span>
+</div>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Today's Sales</p>
+<p class="text-2xl font-bold mt-1">LKR 12,450.00</p>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<span class="p-2 bg-indigo-500/10 rounded-lg text-indigo-500">
+<span class="material-symbols-outlined">account_balance_wallet</span>
+</span>
+<span class="text-xs font-bold text-emerald-500 flex items-center">
+<span class="material-symbols-outlined text-sm">trending_up</span> 5.2%
+                        </span>
+</div>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Total Revenue</p>
+<p class="text-2xl font-bold mt-1">LKR 350,200.00</p>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<span class="p-2 bg-amber-500/10 rounded-lg text-amber-500">
+<span class="material-symbols-outlined">receipt</span>
+</span>
+<span class="text-xs font-bold text-emerald-500 flex items-center">
+<span class="material-symbols-outlined text-sm">trending_up</span> 8.1%
+                        </span>
+</div>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Transactions</p>
+<p class="text-2xl font-bold mt-1">42</p>
+</div>
+<div class="bg-white dark:bg-slate-900 p-6 rounded-xl border border-red-200 dark:border-red-900/30 shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<span class="p-2 bg-red-500/10 rounded-lg text-red-500">
+<span class="material-symbols-outlined">warning</span>
+</span>
+<span class="text-xs font-bold text-red-500 flex items-center">
+<span class="material-symbols-outlined text-sm">trending_down</span> 2.4%
+                        </span>
+</div>
+<p class="text-sm font-medium text-slate-500 dark:text-slate-400">Low Stock Alert</p>
+<p class="text-2xl font-bold mt-1">8 Items</p>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<div class="lg:col-span-2 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden flex flex-col">
+<div class="px-6 py-5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between">
+<h3 class="font-bold text-lg">Recent Transactions</h3>
+<button class="text-sm text-primary font-semibold hover:underline">View All</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="bg-slate-50 dark:bg-slate-800/50 text-slate-500 dark:text-slate-400 text-xs font-bold uppercase tracking-wider">
+<tr>
+<th class="px-6 py-4">Transaction ID</th>
+<th class="px-6 py-4">Patient Name</th>
+<th class="px-6 py-4">Medication</th>
+<th class="px-6 py-4">Grand Total</th>
+<th class="px-6 py-4">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/20 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-slate-500">#TX-9021</td>
+<td class="px-6 py-4 text-sm font-semibold">Kasun Perera</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400 italic">Amoxicillin 500mg</td>
+<td class="px-6 py-4 text-sm font-bold text-primary">LKR 1,350.00</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400">Paid</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/20 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-slate-500">#TX-9020</td>
+<td class="px-6 py-4 text-sm font-semibold">Ishani Silva</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400 italic">Paracetamol 500mg</td>
+<td class="px-6 py-4 text-sm font-bold text-primary">LKR 450.00</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400">Paid</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/20 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-slate-500">#TX-9019</td>
+<td class="px-6 py-4 text-sm font-semibold">Nuwan Fernando</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400 italic">Metformin 850mg</td>
+<td class="px-6 py-4 text-sm font-bold text-primary">LKR 840.00</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400">Pending</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/20 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-slate-500">#TX-9018</td>
+<td class="px-6 py-4 text-sm font-semibold">Dilini Gunawardena</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400 italic">Atorvastatin 20mg</td>
+<td class="px-6 py-4 text-sm font-bold text-primary">LKR 2,260.00</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400">Paid</span>
+</td>
+</tr>
+<tr class="hover:bg-slate-50/50 dark:hover:bg-slate-800/20 transition-colors">
+<td class="px-6 py-4 text-sm font-medium text-slate-500">#TX-9017</td>
+<td class="px-6 py-4 text-sm font-semibold">Sumith Kumara</td>
+<td class="px-6 py-4 text-sm text-slate-600 dark:text-slate-400 italic">Salbutamol Inhaler</td>
+<td class="px-6 py-4 text-sm font-bold text-primary">LKR 1,950.00</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400">Paid</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="space-y-8">
+<div class="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm p-6">
+<h3 class="font-bold text-lg mb-4">Sales Trend (LKR)</h3>
+<div class="h-48 w-full bg-slate-50 dark:bg-slate-800 rounded-lg relative overflow-hidden group">
+<div class="absolute inset-0 flex items-end px-2 pb-2 gap-1">
+<div class="flex-1 bg-primary/20 rounded-t h-[40%] group-hover:bg-primary/30 transition-all"></div>
+<div class="flex-1 bg-primary/20 rounded-t h-[60%] group-hover:bg-primary/30 transition-all"></div>
+<div class="flex-1 bg-primary/20 rounded-t h-[55%] group-hover:bg-primary/30 transition-all"></div>
+<div class="flex-1 bg-primary/40 rounded-t h-[80%] group-hover:bg-primary/50 transition-all"></div>
+<div class="flex-1 bg-primary/20 rounded-t h-[45%] group-hover:bg-primary/30 transition-all"></div>
+<div class="flex-1 bg-primary/30 rounded-t h-[70%] group-hover:bg-primary/40 transition-all"></div>
+<div class="flex-1 bg-primary rounded-t h-[95%]"></div>
+</div>
+<div class="absolute top-4 right-4 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm px-2 py-1 rounded text-[10px] font-bold border border-slate-100 dark:border-slate-800">
+                                Last 7 Days
+                            </div>
+</div>
+<div class="mt-4 flex justify-between text-[10px] font-bold text-slate-400 uppercase tracking-tighter">
+<span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span class="text-primary font-black">Sun</span>
+</div>
+</div>
+<div class="bg-primary rounded-xl border border-primary p-6 shadow-xl shadow-primary/20 relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-white/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+<h3 class="font-bold text-lg text-white mb-2 relative z-10">Quick Actions</h3>
+<p class="text-white/70 text-sm mb-6 relative z-10">Create transactions and reports in one click.</p>
+<div class="space-y-3 relative z-10">
+<button class="w-full bg-white text-primary font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-slate-50 transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined">add_circle</span>
+                                New Sale
+                            </button>
+<button class="w-full bg-white/10 text-white font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-white/20 transition-all border border-white/20">
+<span class="material-symbols-outlined">description</span>
+                                Generate Report
+                            </button>
+<button class="w-full bg-white/10 text-white font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-white/20 transition-all border border-white/20">
+<span class="material-symbols-outlined">add_box</span>
+                                Add Inventory
+                            </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>
